@@ -2,8 +2,8 @@
 let entry = './src/index.js';
 let output = './dist/main.js';
 
-let fs = require('fs');
-let path = require('path');
+let fs = amdRequire('fs');
+let path = amdRequire('path');
 let script = fs.readFileSync(entry, 'utf8');
 let modules = [];
 let styleLoader = function (source) {
@@ -27,7 +27,7 @@ script = script.replace(/require\(['"](.+?)['"]\)/g, function() {
   return `require('${name}')`;
 });
 
-let ejs = require('ejs');
+let ejs = amdRequire('ejs');
 
 let template = `(function (modules) {
     function require(moduleId) {

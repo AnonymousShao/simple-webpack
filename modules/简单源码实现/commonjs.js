@@ -1,4 +1,4 @@
-let fs = require('fs');
+let fs = amdRequire('fs');
 // commonjs
 function req (moduleName) {
   console.log('moduleName', moduleName);

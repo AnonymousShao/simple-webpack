@@ -5,12 +5,12 @@ function define (moduleName, dependencies, factory) {
   factories[moduleName] = factory;
 }
 
-function require (modules, callback) {
+function amdRequire (modules, callback) {
   let results = modules.map(function (module) {
     let factory = factories[module];
     let exports;
     let dependencies = factory.dependencies;
-    require(dependencies, function () {
+    amdRequire(dependencies, function () {
       exports = factory.apply(null, arguments);
     });
     return exports;
@@ -29,6 +29,6 @@ define ('age', ['name', 'profession'], function (name, profession) {
   return profession + name + 1990
 });
 
-require (['age'], function (age) {
+amdRequire (['age'], function (age) {
   console.log(age);
 });

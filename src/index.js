@@ -1,4 +1,4 @@
-let a = require('./a.js');
+let a = amdRequire('./a.js');
 console.log('a', a);
 console.log('hello world');
-require('./index.css');
+amdRequire('./index.css');
